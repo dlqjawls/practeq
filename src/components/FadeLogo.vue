@@ -38,6 +38,7 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
   overflow: hidden;
 }
 .fade-enter-active, .fade-leave-active {
