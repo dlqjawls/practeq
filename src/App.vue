@@ -37,12 +37,5 @@ export default {
   width: 100vw;
 }
 
-#app {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  min-height: 100vh; /* 화면 전체를 덮도록 설정 */
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 </style>
