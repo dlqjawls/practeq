@@ -8,6 +8,7 @@ import { useCounterStore} from '@/stores/counter'
 import ChangePasswordView from '@/views/account/ChangePasswordView.vue'
 import YoutubeTrailerModal from '@/components/MovieDetailView/YoutubeTrailerModal.vue'
 import MovieSearch from '@/components/MovieListView/MovieSearch.vue'
+import ProFileView from '@/views/account/ProFileView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -55,6 +56,11 @@ const router = createRouter({
       name: 'moviesearch',
       component : MovieSearch,
       
+    },
+    {
+      path:'/profile/:username',
+      name:'profile',
+      component: ProFileView,
     }
   ],
 })

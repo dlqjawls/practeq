@@ -1,19 +1,21 @@
 <template>
   <div>
-    <h1>Detail Page</h1>
+    
     <MovieDetailinfo :movie-id="movieId" />
 
     <!-- 댓글 작성 폼 -->
     <form @submit.prevent="submitComment" class="comment-form">
       <h3>댓글 작성</h3>
-      <textarea
-        v-model="content"
-        placeholder="댓글을 입력하세요..."
-        required
-      ></textarea>
-      <button type="submit" :disabled="isSubmitting">
-        {{ isSubmitting ? "작성 중..." : "댓글 작성" }}
-      </button>
+      <div class="textarea-wrapper">
+        <textarea
+          v-model="content"
+          placeholder="댓글을 입력하세요..."
+          required
+        ></textarea>
+        <button type="submit" :disabled="isSubmitting">
+          {{ isSubmitting ? "작성 중..." : "댓글 작성" }}
+        </button>
+      </div>
     </form>
 
     <!-- 댓글 리스트 보기 -->
@@ -119,34 +121,57 @@ const editComment = async (commentId, newContent) => {
 };
 </script>
 
-
 <style lang="css" scoped>
 .comment-form {
+  color: #ada1a1;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+h3{margin-top: 10px;
   margin-bottom: 20px;
+}
+.textarea-wrapper {
+  position: relative;
+  width: 100%;
 }
 
 textarea {
   width: 100%;
   height: 100px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid #615e5e;
+  border-radius: 8px;
   font-size: 14px;
   color: white;
+  resize: none;
 }
 
 button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  background-color: none;
+  /* color: white; */
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
-
-button:disabled {
-  background-color: #aaa;
+button:hover {
+  color: #ff0050;
+  /* transform: scale(1.1); */
+  box-shadow: 0 0 20px rgba(229, 9, 20, 1);
 }
+/* button:disabled {
+  background-color: #aaa;
+} */
 </style>

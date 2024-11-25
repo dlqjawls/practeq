@@ -75,7 +75,7 @@ watch(
 
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 2vw; /* 반응형 간격 */
   margin-top: 20px;
 }

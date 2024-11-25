@@ -1,10 +1,11 @@
 <template>
   <div v-if="movieDetail" class="movie-detail-container">
+    <h1 v-if="movieDetail">{{ movieDetail.title }}</h1>
     <div class="movie-poster">
       <img :src="`https://image.tmdb.org/t/p/w500${movieDetail.poster_path}`" alt="Movie Poster" />
     </div>
     <div class="movie-info">
-      <h2 class="movie-title">{{ movieDetail.title }}</h2>
+      <!-- <h2 class="movie-title">{{ movieDetail.title }}</h2> -->
       <p class="movie-overview">{{ movieDetail.overview }}</p>
       <div class="movie-meta">
         <p><strong>출시 날짜:</strong> {{ movieDetail.release_date }}</p>
@@ -74,6 +75,7 @@ const closeModal = () => {
   padding: 20px;
   max-width: 800px;
   margin: 20px auto;
+  margin-top: 100px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* 깊이감 추가 */
 }
@@ -127,10 +129,9 @@ const closeModal = () => {
 }
 
 .youtube-button:hover {
-  background-color: #e50914; /* 어두운 녹색 */
-  transform: scale(1.05); /* 버튼 클릭 유도 */
+  background-color: #e50914; 
+  transform: scale(1.05); 
 }
-
 /* 로딩 메시지 */
 .loading-message {
   text-align: center;

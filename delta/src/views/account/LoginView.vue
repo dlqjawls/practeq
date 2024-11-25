@@ -10,7 +10,8 @@
 
         <div class="input-group">
           <label for="password">비밀번호</label>
-          <input type="password" id="password" v-model="password" placeholder="비밀번호를 입력하세요" required />
+          <input type="password"
+          id="password" v-model="password" placeholder="비밀번호를 입력하세요" required />
         </div>
 
         <button class="button1" type="submit">로그인</button>
@@ -50,7 +51,7 @@ const logIn = () => {
   justify-content: center; /* 가로 중앙 정렬 */
   align-items: center; /* 세로 중앙 정렬 */
   min-height: 100vh; /* 화면 전체 높이 */
-  background-color: #141414; /* 넷플릭스 다크 배경 */
+  background-color: black; /* 넷플릭스 다크 배경 */
   color: #fff;
   margin: 0;
 }
@@ -68,7 +69,7 @@ const logIn = () => {
 /* 제목 */
 h2 {
   font-size: 1.8rem;
-  /* color: #e50914; 넷플릭스 레드 */
+  
   margin-bottom: 25px;
   text-transform: uppercase;
   letter-spacing: 1px;

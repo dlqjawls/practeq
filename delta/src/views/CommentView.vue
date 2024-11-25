@@ -75,17 +75,18 @@ const formatDate = (dateString) => {
 <style scoped>
 .comment-view {
   margin-top: 20px;
-  max-width: 600px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   font-family: Arial, sans-serif;
-  color: rgb(17, 5, 5);
+   color: #ada1a1;
 }
 
 h3 {
   text-align: center;
-  color: #333;
+  color: #ada1a1;
   margin-bottom: 20px;
+  /* margin-top: 10px; */
 }
 
 ul {
@@ -96,8 +97,8 @@ ul {
 .comment-item {
   margin-bottom: 15px;
   padding: 15px;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
+  background-color: black;
+  border: 1px solid #615e5e;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -117,7 +118,7 @@ ul {
 
 .comment-user {
   font-weight: bold;
-  color: #007BFF;
+  color: #ff0050;
 }
 
 .timestamp {
@@ -127,7 +128,7 @@ ul {
 
 .comment-content {
   margin: 0;
-  color: #555;
+  color: #bbb6b6;
   line-height: 1.5;
 }
 
@@ -137,12 +138,24 @@ ul {
   font-size: 14px;
 }
 .buttonR {
-  color: blue;
+  color: white;
+}
+.buttonR:hover {
+  background-color: #ff0050;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(229, 9, 20, 1);
+  border-radius: 10px;
 }
 .buttonD {
-  color: red;
+  color: white;
+}
+.buttonD:hover {
+  background-color: #ff0050;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(229, 9, 20, 1);
+  border-radius: 10px;
 }
 .ah-sival {
-  color: black;
+  color: white;
 }
 </style>

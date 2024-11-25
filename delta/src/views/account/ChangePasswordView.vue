@@ -51,7 +51,7 @@ const getPassword = () => {
   justify-content: center; /* 가로 중앙 정렬 */
   align-items: center; /* 세로 중앙 정렬 */
   min-height: 100vh; /* 화면 전체 높이 */
-  background-color: #141414; /* 넷플릭스 다크 배경 */
+  background-color: black; /* 넷플릭스 다크 배경 */
   color: #fff;
   margin: 0;
 }

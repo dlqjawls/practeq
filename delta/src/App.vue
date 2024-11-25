@@ -6,12 +6,15 @@
       permanent
       class="navigation-drawer netflix-drawer"
     >
-      <div class="netflix-logo">
-        <span>FuFLIX</span>
+    
+    <div class="netflix-logo">
+      <img   class="imgcolor" src="https://edu.ssafy.com/asset/images/header-logo.jpg" alt="img">
+      <span>SAFLIX</span>
       </div>
       <div v-if="store.username" class="user-info">
         <h2> 👑 {{ store.username }} 👑</h2>
-        <RouterLink to="/change" class="nav-link">비밀번호 변경</RouterLink>
+        <RouterLink :to="{name: 'profile',params:{username: store.username}}" class="nav-link1">마이프로필</RouterLink>
+        <RouterLink to="/change" class="nav-link1">비밀번호 변경</RouterLink>
       </div>
       <div v-else class="user-info">
         <h2> Guest 😕🖕</h2>
@@ -27,7 +30,7 @@
           <span class="nav-link">🎬 Logout</span>
         </v-list-item>
         <v-list-item>
-          <RouterLink to="/recommend" class="nav-link">✨ Recommendations</RouterLink>
+          <RouterLink to="/recommend" class="nav-link">✨ Recommend</RouterLink>
         </v-list-item>
       </v-list>
       <footer class="delete">
@@ -44,8 +47,8 @@
             <input type="text" placeholder="영화 이름을 검색해주세요" v-model="searchQuery" @keyup.enter="SerarchPage"> 
             <button class="nav-link" @click="SerarchPage">찾기</button>
           </div>
-          <h1>Welcome to FuFLIX</h1>
-          <p>아 어캐하지 ..... 🍿🎬</p>
+          <!-- <h1 v-if="onlyHomePage">Welcome to FuFLIX</h1>
+          <p v-if="onlyHomePage">아 어캐하지 ..... 🍿🎬</p> -->
         </div>
         <RouterView />
       </v-container>
@@ -86,9 +89,14 @@ const searchQuery = ref("");
 const router = useRouter();
 
 // 로그인 화면과 createuser 화면인지 체크하는 computed property
+const onlyHomePage= computed (()=> {
+  const athomePage = router.currentRoute.value.name
+  return athomePage ==='home'
+})
+
 const isExcludedPage = computed(() => {
   const currentPage = router.currentRoute.value.name;
-  return currentPage === 'login' || currentPage === 'createuser'; // 'login'과 'createuser' 페이지가 아닐 때만 검색창 표시
+  return currentPage === 'login' || currentPage === 'createuser' ||currentPage === 'change'; 
 });
 
 const SerarchPage = () => {
@@ -101,6 +109,12 @@ const SerarchPage = () => {
 </script>
 
 <style scoped>
+.imgcolor{
+  filter: grayscale(100%) brightness(75%) opacity(0.3); /* 흑백 + 어두운 색상 + 투명도 */
+  width: 25%;
+  height: 10%;
+}
+
 /* 네비게이션 드로어 스타일 */
 .navigation-drawer.netflix-drawer {
   background-color: #141414;
@@ -112,6 +126,11 @@ const SerarchPage = () => {
   justify-content: space-between;
   width: 240px;
   transition: width 0.3s ease;
+  font-family: 'Pretendard', sans-serif; /* 폰트 변경 */
+  font-weight: 400; /* 보통 굵기 */
+  line-height: 1.5;
+  letter-spacing: -0.02em; /* 살짝 간격 조정 */
+  padding: 24px;
 }
 
 @media (max-width: 768px) {
@@ -129,6 +148,7 @@ const SerarchPage = () => {
 }
 
 .main-content {
+  font-family: 'Pretendard', sans-serif;
   background-color: #000;
   color: white;
   padding: 2rem;
@@ -161,47 +181,72 @@ const SerarchPage = () => {
 }
 
 .netflix-logo {
-  font-size: 24px;
+  font-size: 40px;
   font-weight: bold;
   color: #e50914;
-  text-align: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  /* text-align: center; */
+  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-left: 10px;
 }
 
 .user-info {
-  text-align: center;
+  
+  border-top: 1px solid hsla(0, 0%, 100%, .1);
+  border-bottom: 1px solid hsla(0, 0%, 100%, .1);
+  /* text-align: center; */
   margin-bottom: 20px;
+  /* margin-top: 20px; */
+  padding-left: 16px;
+  padding-right: 4px;
 }
 
 .user-info h2 {
-  font-size: 18px;
+  font-size: 25px;
   color: #fff;
+  margin-top: 20px;
 }
 
 .nav-link {
   text-decoration: none;
   color: #b3b3b3;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   display: block;
-  margin: 10px 0;
+  margin: 15px 0;
   transition: color 0.3s;
-}
+  
 
+}
+.nav-link1 {
+  text-decoration: none;
+  color: #b3b3b3;
+  font-size: 15px;
+  font-weight: bold;
+  display: block;
+  margin: 15px 0;
+  transition: color 0.3s;
+  
+
+}
+.nav-link1:hover {
+  color: #ff0050;
+}
 .nav-link:hover {
-  color: #e50914;
+  color: #ff0050;
 }
 
 .theater-banner h1 {
   font-size: 3rem;
   color: #e50914;
+  margin-left: 20px ;
   text-shadow: 0 0 20px #e50914;
 }
 
 .theater-banner p {
   font-size: 1.2rem;
   color: #b3b3b3;
+  margin-left: 20px
 }
 
 .search-bar {
@@ -213,6 +258,7 @@ const SerarchPage = () => {
 }
 
 .search-bar input {
+  font-family: 'Pretendard', sans-serif; /* 검색창에 폰트 적용 */
   width: 60%;
   padding: 10px 15px;
   border: none;
@@ -221,7 +267,7 @@ const SerarchPage = () => {
   font-weight: bold;
   color: white;
   background-color: #141414;
-  box-shadow: 0 0 10px rgba(229, 9, 20, 0.8);
+  box-shadow: 0 0 10px rgb(229, 9, 20);
   outline: none;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -250,7 +296,7 @@ const SerarchPage = () => {
 }
 
 .search-bar button:hover {
-  background-color: #f6121d;
+  background-color: #ff0050;
   transform: scale(1.1);
   box-shadow: 0 0 20px rgba(229, 9, 20, 1);
 }
