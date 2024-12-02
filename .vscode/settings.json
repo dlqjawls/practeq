@@ -1,0 +1,12 @@
+{
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.analysis.extraPaths": [
+      "./",
+      "./venv/Lib/site-packages"
+  ],
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django"
+    ],
+}
